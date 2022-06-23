@@ -1,0 +1,18 @@
+<p>tasker works!</p>
+<button (click)="enableAddTaskForm()">New</button>
+<div *ngIf="showAddTaskForm">
+  <form [formGroup]="addTaskForm">
+    <label>Description</label>
+    <input formControlName="taskDescription">
+    <label>Date</label>
+    <input formControlName="taskDate" type="date">
+    <button (click)="addTask()">Save</button>
+  </form>
+</div>
+<div *ngFor="let task of taskList">
+  id :: {{task.id}}
+  description :: {{task.taskDescription}}
+  date :: {{task.taskDate}}
+  <input type="checkbox" [id]="task.id" [(ngModel)]="task.checked">
+</div>
+<button (click)="completeTask()">Remove</button>
