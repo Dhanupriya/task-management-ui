@@ -1,6 +1,6 @@
 export interface Task {
-  id: bigint;
+  id: number;
   taskDescription: string;
   taskDate: string;
-  checked:boolean
+  checked?: boolean
 }

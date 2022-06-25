@@ -1,1 +1,23 @@
-<app-tasker></app-tasker>
+<mat-card class="taskerPanel">
+  <h1>Tasker works!</h1>
+  <button mat-raised-button class="newButton" (click)="enableAddTaskForm()">New</button>
+  <mat-card class="addTaskPanel" *ngIf="showAddTaskForm">
+    <h1>Add Task</h1>
+    <form [formGroup]="addTaskForm">
+      <label>Description</label>
+      <input formControlName="taskDescription">
+      <label>Date</label>
+      <input formControlName="taskDate" type="date">
+      <button mat-raised-button (click)="addTask()" class="saveButton">Save</button>
+    </form>
+  </mat-card>
+  <mat-card class="viewPanel">
+    <mat-card *ngFor="let task of taskList" class="viewCard">
+      <label>{{task.taskDescription}}</label>
+      <label class="dateLabel"><i class='far fa-calendar'></i> {{task.taskDate}}</label>
+      <input type="checkbox" [id]="task.id" [(ngModel)]="task.checked">
+    </mat-card>
+    <button mat-raised-button (click)="completeTask()" class="newButton">Remove</button>
+  </mat-card>
+</mat-card>
+

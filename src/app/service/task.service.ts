@@ -8,26 +8,24 @@ import {Task} from '../models/task';
 })
 export class TaskService {
 
-  addTasksURL: string = 'http://localhost:8080/taskManagement/addTask';
-  viewTasksURL: string = 'http://localhost:8080/taskManagement/viewTasks';
-  completeTasksURL: string = 'http://localhost:8080/taskManagement/completeTask/';
+  serviceURL: string = 'http://localhost:8080/taskManagement';
   headers = {'content-type': 'application/json'}
 
   constructor(private http: HttpClient) {
   }
 
   addTask(taskDescription: any, taskDate: any): Observable<any> {
-    return this.http.post(this.addTasksURL, JSON.stringify({
+    return this.http.post(`${this.serviceURL}/addTask`, JSON.stringify({
       taskDescription: taskDescription,
       taskDate: taskDate
     }), {'headers': this.headers});
   }
 
   viewTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.viewTasksURL);
+    return this.http.get<Task[]>(`${this.serviceURL}/viewTasks`);
   }
 
-  completeTask(idList: bigint[]) {
-    return this.http.post<any>(this.completeTasksURL , idList, {'headers': this.headers});
+  completeTask(idList: number[]) {
+    return this.http.post<any>(`${this.serviceURL}/completeTask`, idList, {'headers': this.headers});
   }
 }
