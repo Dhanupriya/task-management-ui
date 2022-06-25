@@ -31,10 +31,10 @@ export class TaskerComponent implements OnInit {
   }
 
   completeTask(): void {
-    let id:bigint = this.taskList
+    let ids : bigint[] = this.taskList
         .filter(t => t.checked)
-        .map(t => t.id)[0];
-    this.taskService.completeTask(id)
+        .map(t => t.id);
+    this.taskService.completeTask(ids)
         .subscribe(() => {
               this.viewTasks();
               if(this.showAddTaskForm) {

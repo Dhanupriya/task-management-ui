@@ -1,10 +1,7 @@
 <mat-card class="taskerPanel">
   <h1>Tasker works!</h1>
-  <div>
     <button mat-raised-button class="newButton" (click)="enableAddTaskForm()">New</button>
-  </div>
-  <div *ngIf="showAddTaskForm">
-    <mat-card class="addTaskPanel">
+    <mat-card class="addTaskPanel" *ngIf="showAddTaskForm">
       <h1>Add Task</h1>
       <form [formGroup]="addTaskForm">
         <label>Description</label>
@@ -14,7 +11,6 @@
         <button mat-raised-button (click)="addTask()" class="saveButton">Save</button>
       </form>
     </mat-card>
-  </div>
   <mat-card class="viewPanel">
     <mat-card *ngFor="let task of taskList" class="viewCard">
       <label>{{task.taskDescription}}</label>
