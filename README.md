@@ -28,3 +28,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 docker build -t task-management-ui .
 docker run --detach --name test-task-management-ui -p 80:80 task-management-ui
+
+docker build -t dhanupriyag/task-management-ui .

@@ -1,0 +1,54 @@
+label , input {
+    display: block;
+    height: 30px;
+    font-size: large;
+    padding-left: 15px;
+}
+input, mat-card {
+     width: 500px;
+     margin: 15px;
+}
+.saveButton {
+    margin: 10px;
+    left: 85%;
+    background-color: gray;
+}
+
+.newButton {
+    margin: 10px;
+    left: 85%;
+}
+
+.viewCard {
+    padding: 20px;
+    margin: 15px;
+}
+
+.viewPanel {
+  width: fit-content;
+}
+
+.taskerPanel {
+    width: fit-content;
+    left: 30%;
+}
+
+.addTaskPanel {
+  width:auto;
+}
+
+.addTaskPanel h1 {
+    text-align-last: center;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    float: right;
+    margin-top: -50px;
+    margin-right: inherit;
+}
+
+.dateLabel {
+  font-size: smaller;
+  color: grey;
+}

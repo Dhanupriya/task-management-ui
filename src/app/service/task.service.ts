@@ -8,9 +8,9 @@ import {Task} from '../models/task';
 })
 export class TaskService {
 
-  addTasksURL: string = 'http://localhost:8090/taskManagement/addTask';
-  viewTasksURL: string = 'http://localhost:8090/taskManagement/viewTasks';
-  completeTasksURL: string = 'http://localhost:8090/taskManagement/completeTask/';
+  addTasksURL: string = 'http://localhost:8080/taskManagement/addTask';
+  viewTasksURL: string = 'http://localhost:8080/taskManagement/viewTasks';
+  completeTasksURL: string = 'http://localhost:8080/taskManagement/completeTask/';
 
   constructor(private http: HttpClient) {
   }

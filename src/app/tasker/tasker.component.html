@@ -1,18 +1,26 @@
-<p>tasker works!</p>
-<button (click)="enableAddTaskForm()">New</button>
-<div *ngIf="showAddTaskForm">
-  <form [formGroup]="addTaskForm">
-    <label>Description</label>
-    <input formControlName="taskDescription">
-    <label>Date</label>
-    <input formControlName="taskDate" type="date">
-    <button (click)="addTask()">Save</button>
-  </form>
-</div>
-<div *ngFor="let task of taskList">
-  id :: {{task.id}}
-  description :: {{task.taskDescription}}
-  date :: {{task.taskDate}}
-  <input type="checkbox" [id]="task.id" [(ngModel)]="task.checked">
-</div>
-<button (click)="completeTask()">Remove</button>
+<mat-card class="taskerPanel">
+  <h1>Tasker works!</h1>
+  <div>
+    <button mat-raised-button class="newButton" (click)="enableAddTaskForm()">New</button>
+  </div>
+  <div *ngIf="showAddTaskForm">
+    <mat-card class="addTaskPanel">
+      <h1>Add Task</h1>
+      <form [formGroup]="addTaskForm">
+        <label>Description</label>
+        <input formControlName="taskDescription">
+        <label>Date</label>
+        <input formControlName="taskDate" type="date">
+        <button mat-raised-button (click)="addTask()" class="saveButton">Save</button>
+      </form>
+    </mat-card>
+  </div>
+  <mat-card class="viewPanel">
+    <mat-card *ngFor="let task of taskList" class="viewCard">
+      <label>{{task.taskDescription}}</label>
+      <label class="dateLabel"><i class='far fa-calendar'></i> {{task.taskDate}}</label>
+      <input type="checkbox" [id]="task.id" [(ngModel)]="task.checked">
+    </mat-card>
+    <button mat-raised-button (click)="completeTask()" class="newButton">Remove</button>
+  </mat-card>
+</mat-card>

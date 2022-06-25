@@ -45,7 +45,7 @@ export class TaskerComponent implements OnInit {
 
   viewTasks(): void {
     this.taskService.viewTasks()
-      .subscribe(taskList => (this.taskList = taskList));
+      .subscribe(taskList => (this.taskList = taskList.reverse()));
   }
 
   enableAddTaskForm(): void {
